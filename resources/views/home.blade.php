@@ -16,9 +16,6 @@
             @endif
 
             <div class="card">
-                @error('sertifikat')
-                <h1>{{ $message }}</h1>
-                @enderror
                 <div class="card-header">
                     <h4>Event</h4>
                     <div class="card-header-action">
@@ -35,7 +32,8 @@
                                 <div class="card-header">
                                     <h4>{{ $event->nama }}</h4>
                                     <div class="card-header-action">
-                                        <a href="{{ route('detail-event', $event->id) }}" class="btn btn-primary">Detail</a>
+                                        <a href="{{ route('detail-event', $event->id) }}"
+                                            class="btn btn-primary">Detail</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -100,7 +98,7 @@
                         <input type="date" class="form-control" name="tgl_selesai">
                     </div>
                     <div class="form-group">
-                        <label>File Template Sertifikat</label>
+                        <label>File Template Sertifikat (Maksimal 2MB)</label>
                         <input type="file" class="form-control" name="sertifikat">
                     </div>
             </div>
@@ -141,7 +139,7 @@
                         <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai">
                     </div>
                     <div class="form-group">
-                        <label>File Template Sertifikat</label>
+                        <label>File Template Sertifikat (Maksimal 2MB)</label>
                         <input type="file" class="form-control" name="sertifikat">
                     </div>
             </div>
@@ -156,6 +154,16 @@
 @endsection
 
 @section('script')
+@error('sertifikat')
+<script>
+    swal({
+        title: "Gagal!",
+        text: "{{ $message}} Ukuran Maksimal 2MB",
+        icon: "error"
+    });
+</script>
+
+@enderror
 <script>
     $(document).ready(function() {
         $(document).on('click', '#edt', function() {

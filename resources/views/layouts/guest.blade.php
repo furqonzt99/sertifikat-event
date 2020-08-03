@@ -23,14 +23,31 @@
     <link rel="stylesheet" href="{{ asset ('assets/css/components.css') }}">
 </head>
 
-<body>
+<body class="layout-3">
     <div id="app">
-        <div class="main-wrapper">
-            <div class="navbar-bg"></div>
+        <div class="main-wrapper container">
+            {{-- <div class="navbar-bg"></div> --}}
+            <nav class="navbar navbar-expand-lg bg-primary" style="margin-left: -5px">
+                <div class="container logo">
+                    <a class="navbar-brand ml-3" href="{{ url('/') }}"><img
+                            src="{{ asset ('assets/img/raihcita.png') }}" alt="Raihcita.id" width="75px"></a>
+                    @if (Route::has('login'))
+                    <ul class="navbar-nav navbar-right ml-auto">
+                        @auth
+                        <li class="nav-item">
+                            <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                        </li>
+                        @else
+                        <a href="{{ route('login') }}" class="nav-link">Login</a>
 
-            @include('layouts.navbar')
-
-            @include('layouts.sidebar')
+                        @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="nav-link">Register</a>
+                        @endif
+                        @endauth
+                    </ul>
+                    @endif
+                </div>
+            </nav>
 
             @yield('content')
 
