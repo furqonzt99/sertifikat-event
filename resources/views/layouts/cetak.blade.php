@@ -50,7 +50,7 @@ p {
 
 </style>
 <body>
-    <img src="{{ storage_path('app/public/'. $event->sertifikat) }}">
+    <img src="{{ public_path('template/'. $event->sertifikat) }}">
     <p>No. {{ $nomor }}</p>
     <h1>{{ ucwords($peserta->nama)}}</h1>
 

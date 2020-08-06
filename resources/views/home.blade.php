@@ -41,11 +41,11 @@
                                     </div>
                                     <br>
                                     <div class="chocolat-parent">
-                                        <a href="{{ asset ('storage/'. $event->sertifikat) }}" class="chocolat-image"
+                                        <a href="{{ asset ('template/'. $event->sertifikat) }}" class="chocolat-image"
                                             title="Just an example">
                                             <div data-crop-image="285"
                                                 style="overflow: hidden; position: relative; height: 285px;">
-                                                <img alt="image" src="{{ asset ('storage/'. $event->sertifikat) }}"
+                                                <img alt="image" src="{{ asset ('template/'. $event->sertifikat) }}"
                                                     class="img-fluid">
                                             </div>
                                         </a>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Peserta;
-use Illuminate\Support\Facades\Storage;
+use App\Sertifikat;
 
 class EventController extends Controller {
 
@@ -21,7 +21,8 @@ class EventController extends Controller {
         if($request->hasFile('sertifikat')) {
             $file = $request->file('sertifikat');
             $name = 'raihcita-' . \Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('public', $name);
+            $path = public_path(). '/template';
+            $upload = $file->move($path,$name);
 
             Event::create([
                 'nama' => $request->nama,
@@ -50,9 +51,10 @@ class EventController extends Controller {
         if($request->hasFile('sertifikat')) {
             $file = $request->file('sertifikat');
             $name = 'raihcita-' . \Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('public', $name);
+            $path = public_path(). '/template';
+            $upload = $file->move($path,$name);
 
-            Storage::disk('local')->delete('public/'.$event->sertifikat);
+            unlink(public_path('template/'. $event->sertifikat));
 
             $event->update([
                 'nama' => $request->nama,
@@ -77,9 +79,11 @@ class EventController extends Controller {
 
         $gambar = Event::find($id);
 
+        $sertifikat = Sertifikat::where('id_event', $id)->delete();
+
         Peserta::where('event_id', $id)->delete();
 
-        Storage::disk('local')->delete('public/'.$gambar->sertifikat);
+        unlink(public_path('template/'. $gambar->sertifikat));
 
         $gambar->delete();
 
