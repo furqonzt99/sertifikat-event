@@ -18,7 +18,7 @@
                             <h4>Cetak Sertifikat</h4>
                             <div class="card-description">Udah ikutan kelas di Raih Cita dan pengen ambil sertifikatnya?
                                 Nahh! klik tombol dibawah ya :)</div>
-                            <a href="" class="btn btn-warning mt-3">
+                            <a href="/cetak-sertifikat" class="btn btn-warning mt-3">
                                 Cetak Sertifikat
                             </a>
                         </div>
@@ -33,7 +33,7 @@
                             <h4>Cek Sertifikat</h4>
                             <div class="card-description">Ragu sama keaslian sertifikat? Pengen Cek keaslian sertifikat? langsung aja klik link dibawah
                                 ini :)</div>
-                            <a href="" class="btn btn-warning mt-3">
+                            <a href="/cek-sertifikat" class="btn btn-warning mt-3">
                                 Cek Sertifikat
                             </a>
                         </div>
