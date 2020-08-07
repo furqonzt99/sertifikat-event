@@ -19,7 +19,12 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Nomor Sertifikat</label>
-                                    <input type="text" class="form-control input-element" name="nomor" required>
+                                    <input type="text" class="form-control @error('nomor') is-invalid @enderror input-element" name="nomor" required>
+                                    @error('nomor')
+                                        <div class="invalid-feedback">
+                                            Isi form sesuai dengan format nomor sertifikat
+                                        </div>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-warning">Cek</button>
                             </form>
