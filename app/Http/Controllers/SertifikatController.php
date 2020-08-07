@@ -68,7 +68,7 @@ class SertifikatController extends Controller
     public function cek(Request $request) {
 
         $this->validate($request, [
-            'nomor' => 'required|size:9',
+            'nomor' => 'required|size:10',
             ]);
 
         //ambil nomor nya saja
