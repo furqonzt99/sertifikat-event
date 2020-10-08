@@ -24,7 +24,7 @@ class SertifikatController extends Controller
             ]);
 
         $peserta_valid = Event::find($request->kelas)->peserta->where('email', $request->email)->first();
-        $event = Event::find($request->kelas)->first();
+        $event = Event::find($request->kelas);
 
         if ($peserta_valid != null) {
 
